@@ -27,7 +27,7 @@ dig +short myip.opendns.com @resolver1.opendns.com</samp>
 
 <h4>Agora baixamos o script e é hora de torná-lo executável. Portanto, configure as permissões usando o comando chmod: </h4>
 <h4>Pode-se visualizar o script usando um editor de texto como nano/vim ou acessando o link https://git.io/vpn</h4>
-<h4>As permissões são "0644 (rw-r--r--) para 0755 (rwxr-xr-x)".</h4>
+<h4>As permissões vão de "0644 (rw-r--r--) para 0755 (rwxr-xr-x)".</h4>
 
 <samp>chmod -v +x openvpn-ubuntu-install.sh</samp>
 
