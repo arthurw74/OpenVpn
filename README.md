@@ -1,24 +1,25 @@
-# OpenVpn
-Requisotos:
+<h1 align="center">OpenVpn</h1>
+Requisitos:
 Ubuntu Linux 20.04
-privilegios Root
+privilégios Root
 
 Vou dividir este tutorial em alguns passos.
 
-1°passo
-atualise seu sistema para evitar problemas de segurança com o comando "apt"
+<h3> 1°passo</h3>
+atualize seu sistema para evitar problemas de segurança com o comando "apt"
 sudo apt update
 sudo apt upgrade
 
-2° passo
-encontre seu endereço ip, ele sera usado para conecsão, este comando mosta seu ip logo apos a palavra "inet"
+<h3> 2° passo</h3>
+encontre seu endereço ip, ele será usado para conexão, este comando mostra seu ip logo após a palavra "inet"
 ip a 
-caso esteja utilisando uma vm use o seguinte comando.
+Caso esteja utilizando uma vm use o seguinte comando.
 dig +short myip.opendns.com @resolver1.opendns.com
 
-O script detectará automaticamente sua configuração de rede. Tudo o que você precisa fazer é fornecer um endereço IP correto quando solicitado.
+O script detecta automaticamente sua configuração de rede. Tudo o que você precisa fazer é fornecer um endereço IP correto quando solicitado.
 
-Passo 3 – Baixe e execute o script openvpn-install.sh
+<h3>Passo 3 </h3>
+ Baixe e execute o script openvpn-install.sh
 
 Vou usar o comando wget da seguinte forma:
 
@@ -26,15 +27,15 @@ wget https://git.io/vpn -O openvpn-ubuntu-install.sh
 
 Agora baixamos o script e é hora de torná-lo executável. Portanto, configure as permissões usando o comando chmod: 
 Pode-se visualizar o script usando um editor de texto como nano/vim ou acessando o link https://git.io/vpn
-as permisoes são "0644 (rw-r--r--) para 0755 (rwxr-xr-x)".
+As permissões são "0644 (rw-r--r--) para 0755 (rwxr-xr-x)".
 
 chmod -v +x openvpn-ubuntu-install.sh
 
 Execute o script openvpn-ubuntu-install.sh para instalar o servidor OpenVPN.
 sudo ./openvpn-ubuntu-install.sh
 
-agora é só seguir as istruçoes do script.
-recomendo usar as configurações padrão, lembrese de abrir a porta UDP 1194 de seu roteador ou VM.
+Agora é só seguir as instruções do script.
+Recomendo usar as configurações padrão, lembre-se de abrir a porta UDP 1194 de seu roteador ou VM.
 Eu sugiro fortemente que você sempre escolha a opção de servidor DNS como 1.1.1.1 ou Google DNS ou qualquer outro serviço DNS desde que você confie de acordo com suas necessidades
 
 Como faço para iniciar/parar/reiniciar o servidor OpenVPN no Ubuntu 20.04 LTS?
@@ -60,7 +61,7 @@ sudo systemctl status openvpn-server@server.service
 ## ou ##
 sudo systemctl status openvpn@server.service
 
-4° passo 
+<h3>4° passo </h3>
 Como adicionar ou remover um novo usuário VPN com um certificado
 Você precisa executar o mesmo script novamente para adicionar ou remover um novo usuário VPN ao certificado TLS. Por exemplo:
 sudo ./openvpn-ubuntu-install.sh
@@ -79,7 +80,7 @@ Option:
 Escolha a opção nº 1 para adicionar um novo cliente/usuário VPN e a opção nº 2 para remover o cliente e usuário VPN existente. Vamos adicionar um novo cliente/usuário nome.ovpn 
 os novos clientes são salvos na pasta /root/nome.ovpn
 
-voce pode mover para a pasta do usuario com o comando abaixo, no meu caso o usuario é ubuntu.
+Você pode mover para a pasta do usuário com o comando abaixo, no meu caso o usuário é ubuntu.
 sudo du
 mv /root/*.ovpn /home/ubuntu/
 
@@ -110,9 +111,9 @@ sudo sysctl -p -f /etc/sysctl.d/30-openvpn-forward.conf
 sudo sysctl -p -f /etc/sysctl.d/99-openvpn.conf
 
 ## 1194 é a porta do servidor openvpn ##
-netstat -tulpn | grep :1194
+netstat -tulpen | grep :1194
 ## 1194 é a porta do servidor openvpn  ##
-ss -tulpn | grep :1194
+ss -tulpen | grep :1194
 ## o servidor openvpn está rodando? ##
 ps aux | grep openvpn
 ## o servidor openvpn está rodando?  ##
@@ -124,5 +125,6 @@ Se não estiver executando, reinicie o servidor OpenVPN:
 sudo systemctl restart openvpn-server@server.service
 
 Conclusão
-Parabéns, Voçê configurou um servidor OpenVpn no Ubuntu Linux 20.04 LTS em execução na nuvem.
-Neste tutorial foi utilizado a Vm Oracle.
+Parabéns, Você configurou um servidor OpenVpn no Ubuntu Linux 20.04 LTS
+
+
