@@ -85,7 +85,7 @@ Option: </samp>
 mv /root/*.ovpn /home/ubuntu/</samp>
 
 <h4>A regra de firewall está configurada corretamente em seu servidor? </h4>
-<h4>Use o comando cat para ver as regras: Config:</h4>
+<h4>Use o comando cat para ver as regras:</h4>
 <samp>sudo cat /etc/systemd/system/openvpn-iptables.service<br></samp>
 <samp>## ou  ##<br></samp>
 <samp>sudo cat /etc/systemd/system/iptables-openvpn.service</samp>
@@ -98,7 +98,7 @@ mv /root/*.ovpn /home/ubuntu/</samp>
 <samp>## ou ##<br></samp>
 <samp>sudo cat /etc/sysctl.d/99-openvpn.conf</samp></samp>
 
-<h4>Insira as regras se não forem inseridas usando o seguinte comando: </h4>
+<h4>Insira as regras que não estão inseridas usando o seguinte comando: </h4>
 <h4>O servidor OpenVPN está em execução e a porta está aberta? </h4>
 <h4>se o comando ss ou o comando netstat e o comando pidof /ps:</h4>
 
@@ -125,5 +125,5 @@ mv /root/*.ovpn /home/ubuntu/</samp>
 <samp>sudo systemctl restart openvpn-server@server.service</samp>
 
 <h4>Conclusão</h4>
-<h4>arabéns, Você configurou um servidor OpenVpn no Ubuntu Linux 20.04 LTS</h4>
+<h4>Parabéns, Você configurou um servidor OpenVpn no Ubuntu Linux 20.04 LTS</h4>
 
