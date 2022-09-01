@@ -6,67 +6,67 @@ privilégios Root
 Vou dividir este tutorial em alguns passos.
 
 <h3> 1°passo</h3>
-atualize seu sistema para evitar problemas de segurança com o comando "apt"
+<h4>atualize seu sistema para evitar problemas de segurança com o comando "apt"</h4>
 sudo apt update
 sudo apt upgrade
 
 <h3> 2° passo</h3>
-encontre seu endereço ip, ele será usado para conexão, este comando mostra seu ip logo após a palavra "inet"
+<h4>encontre seu endereço ip, ele será usado para conexão, este comando mostra seu ip logo após a palavra "inet"</h4>
 ip a 
 Caso esteja utilizando uma vm use o seguinte comando.
 dig +short myip.opendns.com @resolver1.opendns.com
 
-O script detecta automaticamente sua configuração de rede. Tudo o que você precisa fazer é fornecer um endereço IP correto quando solicitado.
+O script detecta automaticamente sua configuração de rede. Tudo o que você precisa fazer é fornecer um endereço IP correto quando solicitado.</h4>
 
 <h3>Passo 3 </h3>
- Baixe e execute o script openvpn-install.sh
+ Baixe e execute o script openvpn-install.sh</h4>
 
-Vou usar o comando wget da seguinte forma:
+ <h4>Vou usar o comando wget da seguinte forma:</h4>
 
 wget https://git.io/vpn -O openvpn-ubuntu-install.sh
 
-Agora baixamos o script e é hora de torná-lo executável. Portanto, configure as permissões usando o comando chmod: 
-Pode-se visualizar o script usando um editor de texto como nano/vim ou acessando o link https://git.io/vpn
-As permissões são "0644 (rw-r--r--) para 0755 (rwxr-xr-x)".
+<h4>Agora baixamos o script e é hora de torná-lo executável. Portanto, configure as permissões usando o comando chmod: </h4>
+<h4>Pode-se visualizar o script usando um editor de texto como nano/vim ou acessando o link https://git.io/vpn</h4>
+<h4>As permissões são "0644 (rw-r--r--) para 0755 (rwxr-xr-x)".</h4>
 
 chmod -v +x openvpn-ubuntu-install.sh
 
-Execute o script openvpn-ubuntu-install.sh para instalar o servidor OpenVPN.
+<h4>Execute o script openvpn-ubuntu-install.sh para instalar o servidor OpenVPN.</h4>
 sudo ./openvpn-ubuntu-install.sh
 
-Agora é só seguir as instruções do script.
-Recomendo usar as configurações padrão, lembre-se de abrir a porta UDP 1194 de seu roteador ou VM.
-Eu sugiro fortemente que você sempre escolha a opção de servidor DNS como 1.1.1.1 ou Google DNS ou qualquer outro serviço DNS desde que você confie de acordo com suas necessidades
+<h4>Agora é só seguir as instruções do script.</h4>
+<h4>Recomendo usar as configurações padrão, lembre-se de abrir a porta UDP 1194 de seu roteador ou VM.</h4>
+<h4>Eu sugiro fortemente que você sempre escolha a opção de servidor DNS como 1.1.1.1 ou Google DNS ou qualquer outro serviço DNS desde que você confie de acordo com suas necessidades</h4>
 
-Como faço para iniciar/parar/reiniciar o servidor OpenVPN no Ubuntu 20.04 LTS?
-Precisamos usar o comando systemctl da seguinte forma:
+<h4>Como faço para iniciar/parar/reiniciar o servidor OpenVPN no Ubuntu 20.04 LTS?</h4>
+<h4>Precisamos usar o comando systemctl da seguinte forma:</h4>
 
-Pare o servidor OpenVPN
+<h4>Pare o servidor OpenVPN</h4>
 sudo systemctl stop openvpn-server@server.service
 ## ou ##
 sudo systemctl stop openvpn@server.service
 
-Inicie o servidor OpenVPN
+<h4>Inicie o servidor OpenVPN</h4>
 sudo systemctl start openvpn-server@server.service
 ## ou ##
 sudo systemctl start openvpn@server.service
 
-Reinicie o servidor OpenVPN após alterar as opções de configuração
+<h4>Reinicie o servidor OpenVPN após alterar as opções de configuração</h4>
 sudo systemctl restart openvpn-server@server.service
 ## ou ##
 sudo systemctl restart openvpn@server.service
 
-Mostrar status do servidor OpenVPN
+<h4>Mostrar status do servidor OpenVPN</h4>
 sudo systemctl status openvpn-server@server.service
 ## ou ##
 sudo systemctl status openvpn@server.service
 
 <h3>4° passo </h3>
-Como adicionar ou remover um novo usuário VPN com um certificado
-Você precisa executar o mesmo script novamente para adicionar ou remover um novo usuário VPN ao certificado TLS. Por exemplo:
+<h4>Como adicionar ou remover um novo usuário VPN com um certificado</h4>
+<h4>Você precisa executar o mesmo script novamente para adicionar ou remover um novo usuário VPN ao certificado TLS. Por exemplo:</h4>
 sudo ./openvpn-ubuntu-install.sh
 
-Você verá o menu desta forma:
+<h4>Você verá o menu desta forma:</h4>
 
 OpenVPN is already installed.
 
@@ -77,20 +77,20 @@ Select an option:
    4) Exit
 Option: 
 
-Escolha a opção nº 1 para adicionar um novo cliente/usuário VPN e a opção nº 2 para remover o cliente e usuário VPN existente. Vamos adicionar um novo cliente/usuário nome.ovpn 
-os novos clientes são salvos na pasta /root/nome.ovpn
+<h4>Escolha a opção nº 1 para adicionar um novo cliente/usuário VPN e a opção nº 2 para remover o cliente e usuário VPN existente. Vamos adicionar um novo cliente/usuário nome.ovpn </h4>
+<h4>os novos clientes são salvos na pasta /root/nome.ovpn</h4>
 
-Você pode mover para a pasta do usuário com o comando abaixo, no meu caso o usuário é ubuntu.
-sudo du
+<h4>Você pode mover para a pasta do usuário com o comando abaixo, no meu caso o usuário é ubuntu.</h4>
+sudo su
 mv /root/*.ovpn /home/ubuntu/
 
-A regra de firewall está configurada corretamente em seu servidor? 
-Use o comando cat para ver as regras: Config:
+<h4>A regra de firewall está configurada corretamente em seu servidor? </h4>
+<h4>Use o comando cat para ver as regras: Config:</h4>
 sudo cat /etc/systemd/system/openvpn-iptables.service
 ## ou  ##
 sudo cat /etc/systemd/system/iptables-openvpn.service
 
-Outra opção é executar os comandos iptables command e sysctl command para verificar a configuração da regra NAT em seu servidor:
+<h4>Outra opção é executar os comandos iptables command e sysctl command para verificar a configuração da regra NAT em seu servidor:</h4>
 
 sudo iptables -t nat -L -n -v
 sysctl net.ipv4.ip_forward
@@ -98,9 +98,9 @@ sudo cat /etc/sysctl.d/30-openvpn-forward.conf
 ## ou ##
 sudo cat /etc/sysctl.d/99-openvpn.conf
 
-Insira as regras se não forem inseridas usando o seguinte comando: 
-O servidor OpenVPN está em execução e a porta está aberta? U
-se o comando ss ou o comando netstat e o comando pidof /ps:
+<h4>Insira as regras se não forem inseridas usando o seguinte comando: </h4>
+<h4>O servidor OpenVPN está em execução e a porta está aberta? </h4>
+<h4>se o comando ss ou o comando netstat e o comando pidof /ps:</h4>
 
 sudo systemctl start openvpn-iptables.service
 ## Ou ##
@@ -124,7 +124,6 @@ Se não estiver executando, reinicie o servidor OpenVPN:
 
 sudo systemctl restart openvpn-server@server.service
 
-Conclusão
-Parabéns, Você configurou um servidor OpenVpn no Ubuntu Linux 20.04 LTS
-
+<h4>Conclusão</h4>
+<h4>arabéns, Você configurou um servidor OpenVpn no Ubuntu Linux 20.04 LTS</h4>
 
