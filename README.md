@@ -102,26 +102,26 @@ sudo cat /etc/sysctl.d/99-openvpn.conf</samp>
 <h4>O servidor OpenVPN está em execução e a porta está aberta? </h4>
 <h4>se o comando ss ou o comando netstat e o comando pidof /ps:</h4>
 
-<samp>sudo systemctl start openvpn-iptables.service<br>
-<samp>## Ou ##<br>
-<samp>sudo systemctl start iptables-openvpn.service<br>
-<samp>sudo sysctl -w net.ipv4.ip_forward=1<br>
-<samp>sudo sysctl -p -f /etc/sysctl.d/30-openvpn-forward.conf<br>
-<samp>## Ou ##<br>
-<samp>sudo sysctl -p -f /etc/sysctl.d/99-openvpn.conf<br>
-<samp><br>
-<samp>## 1194 é a porta do servidor openvpn ##<br>
-<samp>netstat -tulpen | grep :1194<br>
-<samp>## 1194 é a porta do servidor openvpn  ##<br>
-<samp>ss -tulpen | grep :1194<br>
-<samp>## o servidor openvpn está rodando? ##<br>
-<samp>ps aux | grep openvpn<br>
-<samp>## o servidor openvpn está rodando?  ##<br>
-<samp>ps -C openvpn<br>
-<samp>## encontre o PID do servidor openvpn ##<br>
-<samp>pidof openvpn<br>
-<samp>Se não estiver executando, reinicie o servidor OpenVPN:<br>
-<br>
+<samp>sudo systemctl start openvpn-iptables.service<br></samp>
+<samp>## Ou ##<br></samp>
+<samp>sudo systemctl start iptables-openvpn.service<br></samp>
+<samp>sudo sysctl -w net.ipv4.ip_forward=1<br></samp>
+<samp>sudo sysctl -p -f /etc/sysctl.d/30-openvpn-forward.conf<br></samp>
+<samp>## Ou ##<br></samp>
+<samp>sudo sysctl -p -f /etc/sysctl.d/99-openvpn.conf<br></samp>
+<samp><br></samp>
+<samp>## 1194 é a porta do servidor openvpn ##<br></samp>
+<samp>netstat -tulpen | grep :1194<br></samp>
+<samp>## 1194 é a porta do servidor openvpn  ##<br></samp>
+<samp>ss -tulpen | grep :1194<br></samp>
+<samp>## o servidor openvpn está rodando? ##<br></samp>
+<samp>ps aux | grep openvpn<br></samp>
+<samp>## o servidor openvpn está rodando?  ##<br></samp>
+<samp>ps -C openvpn<br></samp>
+<samp>## encontre o PID do servidor openvpn ##<br></samp>
+<samp>pidof openvpn<br></samp>
+<samp>Se não estiver executando, reinicie o servidor OpenVPN:<br></samp>
+<br></samp>
 <samp>sudo systemctl restart openvpn-server@server.service</samp>
 
 <h4>Conclusão</h4>
