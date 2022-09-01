@@ -103,26 +103,26 @@ sudo cat /etc/sysctl.d/99-openvpn.conf</samp>
 <h4>se o comando ss ou o comando netstat e o comando pidof /ps:</h4>
 
 <samp>sudo systemctl start openvpn-iptables.service<br>
-## Ou ##<br>
-sudo systemctl start iptables-openvpn.service<br>
-sudo sysctl -w net.ipv4.ip_forward=1<br>
-sudo sysctl -p -f /etc/sysctl.d/30-openvpn-forward.conf<br>
-## Ou ##<br>
-sudo sysctl -p -f /etc/sysctl.d/99-openvpn.conf<br>
+<samp>## Ou ##<br>
+<samp>sudo systemctl start iptables-openvpn.service<br>
+<samp>sudo sysctl -w net.ipv4.ip_forward=1<br>
+<samp>sudo sysctl -p -f /etc/sysctl.d/30-openvpn-forward.conf<br>
+<samp>## Ou ##<br>
+<samp>sudo sysctl -p -f /etc/sysctl.d/99-openvpn.conf<br>
+<samp><br>
+<samp>## 1194 é a porta do servidor openvpn ##<br>
+<samp>netstat -tulpen | grep :1194<br>
+<samp>## 1194 é a porta do servidor openvpn  ##<br>
+<samp>ss -tulpen | grep :1194<br>
+<samp>## o servidor openvpn está rodando? ##<br>
+<samp>ps aux | grep openvpn<br>
+<samp>## o servidor openvpn está rodando?  ##<br>
+<samp>ps -C openvpn<br>
+<samp>## encontre o PID do servidor openvpn ##<br>
+<samp>pidof openvpn<br>
+<samp>Se não estiver executando, reinicie o servidor OpenVPN:<br>
 <br>
-## 1194 é a porta do servidor openvpn ##<br>
-netstat -tulpen | grep :1194<br>
-## 1194 é a porta do servidor openvpn  ##<br>
-ss -tulpen | grep :1194<br>
-## o servidor openvpn está rodando? ##<br>
-ps aux | grep openvpn<br>
-## o servidor openvpn está rodando?  ##<br>
-ps -C openvpn<br>
-## encontre o PID do servidor openvpn ##<br>
-pidof openvpn<br>
-Se não estiver executando, reinicie o servidor OpenVPN:<br>
-<br>
-sudo systemctl restart openvpn-server@server.service</samp>
+<samp>sudo systemctl restart openvpn-server@server.service</samp>
 
 <h4>Conclusão</h4>
 <h4>arabéns, Você configurou um servidor OpenVpn no Ubuntu Linux 20.04 LTS</h4>
