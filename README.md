@@ -86,17 +86,17 @@ mv /root/*.ovpn /home/ubuntu/</samp>
 
 <h4>A regra de firewall está configurada corretamente em seu servidor? </h4>
 <h4>Use o comando cat para ver as regras: Config:</h4>
-<samp>sudo cat /etc/systemd/system/openvpn-iptables.service<br>
-## ou  ##<br>
-sudo cat /etc/systemd/system/iptables-openvpn.service</samp>
+<samp>sudo cat /etc/systemd/system/openvpn-iptables.service<br></samp>
+<samp>## ou  ##<br></samp>
+<samp>sudo cat /etc/systemd/system/iptables-openvpn.service</samp>
 
 <h4>Outra opção é executar os comandos iptables command e sysctl command para verificar a configuração da regra NAT em seu servidor:</h4>
 
-<samp>sudo iptables -t nat -L -n -v<br>
-sysctl net.ipv4.ip_forward<br>
-sudo cat /etc/sysctl.d/30-openvpn-forward.conf<br>
-## ou ##<br>
-sudo cat /etc/sysctl.d/99-openvpn.conf</samp>
+<samp>sudo iptables -t nat -L -n -v<br></samp>
+<samp>sysctl net.ipv4.ip_forward<br></samp>
+<samp>sudo cat /etc/sysctl.d/30-openvpn-forward.conf<br></samp>
+<samp>## ou ##<br></samp>
+<samp>sudo cat /etc/sysctl.d/99-openvpn.conf</samp></samp>
 
 <h4>Insira as regras se não forem inseridas usando o seguinte comando: </h4>
 <h4>O servidor OpenVPN está em execução e a porta está aberta? </h4>
